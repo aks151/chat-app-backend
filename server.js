@@ -6,7 +6,8 @@ import {createServer} from 'http';
 import {Server} from 'socket.io';
 import connectDB from './src/config/db.js';
 import authRoutes from './src/routes/authRoutes.js';
-import { notFound, errorHandler } from './src/middlewares/errorMiddleware.js';
+import { notFound, errorHandler } from './src/middlewares/errorMiddleware.js'
+import userRoutes from './src/routes/userRoutes.js';
 
 
 connectDB();
@@ -31,7 +32,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
-// app.use('/api/users', userRoutes);
+app.use('/api/users', userRoutes);
 
 // initializeSocketIO(io);
 
