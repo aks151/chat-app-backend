@@ -1,5 +1,5 @@
-import Chat from "../models/chatModel";
-import User from "../models/userModel";
+import Chat from "../models/chatModel.js";
+import User from "../models/userModel.js";
 
 const accessChat = async (req, res, next) => {
     const {userid} = req.body;
@@ -25,16 +25,27 @@ const accessChat = async (req, res, next) => {
           });
 
           if(isChat) {
-            res.status(200).send(isChat);
+            res.send(isChat);
           } else {
             const chatData = {
                 chatName: "sender",
                 isGroupChat: false,
                 users: [req.user._id, userid]
             };
+
+            const createdChat = await Chat.create(chatData);
+
+            const fullChat = await Chat.findOne({_id: createdChat._id}).populate(
+              "users",
+              "-password"
+            )
+
+            res.status(201).send(fullChat);
           }
           
     } catch(error) {
        next(error);
-    }
+    };
 }
+
+export { accessChat };

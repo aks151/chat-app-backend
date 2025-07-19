@@ -8,6 +8,7 @@ import connectDB from './src/config/db.js';
 import authRoutes from './src/routes/authRoutes.js';
 import { notFound, errorHandler } from './src/middlewares/errorMiddleware.js'
 import userRoutes from './src/routes/userRoutes.js';
+import chatRoutes from './src/routes/chatRoutes.js';
 
 
 connectDB();
@@ -33,6 +34,8 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/chats', chatRoutes);
+
 
 // initializeSocketIO(io);
 
