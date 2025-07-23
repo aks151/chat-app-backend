@@ -9,6 +9,7 @@ import authRoutes from './src/routes/authRoutes.js';
 import { notFound, errorHandler } from './src/middlewares/errorMiddleware.js'
 import userRoutes from './src/routes/userRoutes.js';
 import chatRoutes from './src/routes/chatRoutes.js';
+import messageRoutes from './src/routes/messageRoutes.js';
 
 
 connectDB();
@@ -35,6 +36,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/chats', chatRoutes);
+app.use('/api/messages', messageRoutes);
 
 
 // initializeSocketIO(io);
