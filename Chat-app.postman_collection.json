@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c2e8d9f8-87f9-46e4-8bfb-87766de0ff01",
+		"_postman_id": "6a2cdc64-d3a2-4295-b658-99ac409a03d2",
 		"name": "Chat-app",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "36540330",
-		"_collection_link": "https://self99-6146.postman.co/workspace/1e7b1889-cb35-4e02-8760-0b342deb647f/collection/36540330-c2e8d9f8-87f9-46e4-8bfb-87766de0ff01?action=share&source=collection_link&creator=36540330"
+		"_exporter_id": "17960028"
 	},
 	"item": [
 		{
@@ -50,6 +49,39 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
+					"raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
 					"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"password123\"\n}",
 					"options": {
 						"raw": {
@@ -77,7 +109,49 @@
 			"name": "search",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chats",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NzhkZWI2YzNjMzczNTkzNGU0ZmIxZCIsImlhdCI6MTc1Mjg5NzY3OSwiZXhwIjoxNzU1NDg5Njc5fQ.pyUZWmulvX5Jh09RaCZ49jcIPqwxViS1MlkkeOd_wkY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userid\": \"687b1858685b22331bf8639e\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/chats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"chats"
+					]
+				}
 			},
 			"response": []
 		}
