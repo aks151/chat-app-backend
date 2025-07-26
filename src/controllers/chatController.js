@@ -29,7 +29,9 @@ const accessChat = async (req, res, next) => {
 
           if(isChat) {
             res.send(isChat);
+            console.log("Chat found:", isChat);
           } else {
+            console.log("No chat found, creating new chat for user ID:", userid);
             const chatData = {
                 chatName: "sender",
                 isGroupChat: false,
@@ -44,6 +46,7 @@ const accessChat = async (req, res, next) => {
             )
 
             res.status(201).send(fullChat);
+          console.log("New chat created:", fullChat);
           }
           
     } catch(error) {
