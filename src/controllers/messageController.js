@@ -3,6 +3,7 @@ import User from '../models/userModel.js';
 import Chat from '../models/chatModel.js';
 
 const sendMessage = async (req, res, next) => {
+    console.log('yoyo sendMessage called, req: ', req);
     const {content, chatid} = req.body;
 
     if(!content || !chatid){

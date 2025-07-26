@@ -3,6 +3,7 @@ import User from "../models/userModel.js";
 
 const accessChat = async (req, res, next) => {
     const {userid} = req.body;
+    console.log("Accessing chat for user ID:", userid);
 
     if(!userid) {
         console.error("User ID not provided");
@@ -10,6 +11,7 @@ const accessChat = async (req, res, next) => {
     }
 
     try {
+      console.log("Accessing chat for user ID, try block:", userid);
         let isChat = await Chat.findOne({
             isGroupChat: false,
             $and: [
