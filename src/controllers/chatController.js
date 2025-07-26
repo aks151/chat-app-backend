@@ -13,6 +13,7 @@ const accessChat = async (req, res, next) => {
 
     try {
       console.log("Accessing chat for user ID, try block:", userid);
+      console.log("Current user ", req.user);
         let isChat = await Chat.findOne({
             isGroupChat: false,
             $and: [
