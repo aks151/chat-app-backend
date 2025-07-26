@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import  User from '../models/userModel.js';
 
 const protect  = async (req, res, next) => {
-    console.log('protect middleware called, req: ', req.headers.authorization);
+    console.log('protect middleware called, req: ', JSON.stringify(req.headers.authorization));
     let token;
 
     if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
