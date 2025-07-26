@@ -2,6 +2,7 @@ import Chat from "../models/chatModel.js";
 import User from "../models/userModel.js";
 
 const accessChat = async (req, res, next) => {
+    console.log("chatController.js Accessing chat, req.body:", req.body);
     const {userid} = req.body;
     console.log("Accessing chat for user ID:", userid);
 
